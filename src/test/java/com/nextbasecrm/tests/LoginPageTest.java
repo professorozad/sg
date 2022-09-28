@@ -1,8 +1,8 @@
 package com.nextbasecrm.tests;
 
 import com.github.javafaker.Faker;
+import com.nextbasecrm.pages.ForgotPasswordPage;
 import com.nextbasecrm.pages.LoginPage;
-import com.nextbasecrm.utilities.BrowserUtils;
 import com.nextbasecrm.utilities.ConfigurationReader;
 import com.nextbasecrm.utilities.Driver;
 import org.openqa.selenium.WebDriver;
@@ -11,7 +11,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class loginPageTest {
+public class LoginPageTest {
 
     WebDriver driver;
     LoginPage loginPage;
@@ -104,8 +104,6 @@ public class loginPageTest {
         Assert.assertTrue(actualInTitle.contains(expectedInTitle));
 
     }
-
-
 
 
 }
