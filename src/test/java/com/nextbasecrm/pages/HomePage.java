@@ -15,16 +15,22 @@ public class HomePage {
     public WebElement getCommentBox;
 
     @FindBy(xpath = "//iframe[@class='bx-editor-iframe']")
-    public WebElement iframe1;
+    public WebElement iframe;
 
     @FindBy(xpath = "//body[@style='min-height: 84px;']")
     public WebElement writeCommentBox;
 
     @FindBy(xpath = "//button[contains(@id, 'submit_blog')]")
-    public WebElement sendButton;
+    public WebElement sendCommentButton;
 
     @FindBy(xpath = "//div[@class='feed-add-post-micro']")
     public WebElement sendMessageInputBox;
+
+    @FindBy(xpath = "//body[@style='min-height: 184px;']")
+    public WebElement writeMessageBox;
+
+    @FindBy(xpath = "blog-submit-button-save")
+    public WebElement sendMessageButton;
 
 
 

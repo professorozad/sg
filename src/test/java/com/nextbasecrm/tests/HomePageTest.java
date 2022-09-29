@@ -57,7 +57,7 @@ public class HomePageTest {
 
         // switch the iframe which is include this input box
 
-        Driver.getDriver().switchTo().frame(homePage.iframe1);
+        Driver.getDriver().switchTo().frame(homePage.iframe);
 
         // write a comment with using faker
 
@@ -69,7 +69,7 @@ public class HomePageTest {
 
         // click the send button
 
-        homePage.sendButton.click();
+        homePage.sendCommentButton.click();
         BrowserUtils.sleep(5);
     }
 
