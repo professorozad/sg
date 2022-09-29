@@ -7,6 +7,8 @@ import com.nextbasecrm.utilities.BrowserUtils;
 import com.nextbasecrm.utilities.ConfigurationReader;
 import com.nextbasecrm.utilities.Driver;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptException;
+import org.openqa.selenium.JavascriptExecutor;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -26,6 +28,13 @@ public class HomePageTest {
         homePage = new HomePage();
         loginPage = new LoginPage();
         faker = new Faker();
+
+        // navigate to homePage
+
+        loginPage.loginBox.sendKeys("helpdesk1@cybertekschool.com");
+        loginPage.passwordBox.sendKeys("UserUser");
+        loginPage.loginButton.click();
+
     }
 
     @AfterMethod
@@ -36,11 +45,7 @@ public class HomePageTest {
     @Test
     public void comment_test(){
 
-        // we need to login first.
 
-        loginPage.loginBox.sendKeys("helpdesk1@cybertekschool.com");
-        loginPage.passwordBox.sendKeys("UserUser");
-        loginPage.loginButton.click();
 
         // Verify the title of the page
 
@@ -48,6 +53,10 @@ public class HomePageTest {
         String actualInTitle = Driver.getDriver().getTitle();
 
         Assert.assertTrue(actualInTitle.contains(expectedInTitle));
+
+
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        js.executeScript("window.scroll(0,200)");
 
         BrowserUtils.sleep(2);
 
@@ -71,6 +80,37 @@ public class HomePageTest {
 
         homePage.sendCommentButton.click();
         BrowserUtils.sleep(5);
+    }
+
+    @Test
+    public void message_test(){
+
+        BrowserUtils.sleep(2);
+
+        // Click " Send message " box
+
+        homePage.sendMessageInputBox.click();
+
+        // switch the iframe which is include this input box
+
+        Driver.getDriver().switchTo().frame(homePage.iframe);
+
+        // write a comment with using faker
+
+        homePage.writeMessageBox.sendKeys(faker.chuckNorris().fact());
+
+        // switch to parent frame for able to use send button
+
+        Driver.getDriver().switchTo().parentFrame();
+
+        // click the send button
+
+        homePage.sendMessageButton.click();
+
+        BrowserUtils.sleep(10);
+
+
+
     }
 
 

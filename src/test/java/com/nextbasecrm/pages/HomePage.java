@@ -29,7 +29,7 @@ public class HomePage {
     @FindBy(xpath = "//body[@style='min-height: 184px;']")
     public WebElement writeMessageBox;
 
-    @FindBy(xpath = "blog-submit-button-save")
+    @FindBy(xpath = "//button[@id='blog-submit-button-save']")
     public WebElement sendMessageButton;
 
 
