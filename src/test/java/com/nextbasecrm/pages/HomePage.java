@@ -11,7 +11,7 @@ public class HomePage {
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
-    @FindBy(linkText = "Add comment")
+    @FindBy(xpath = "//a[.='Add comment'][1]")
     public WebElement getCommentBox;
 
     @FindBy(xpath = "//iframe[@class='bx-editor-iframe']")

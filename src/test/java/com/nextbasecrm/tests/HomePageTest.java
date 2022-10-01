@@ -58,11 +58,13 @@ public class HomePageTest {
         JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
         js.executeScript("window.scroll(0,200)");
 
-        BrowserUtils.sleep(2);
+        BrowserUtils.sleep(3);
 
         // Go to first messsage in the activity stream and click " Add comment " box
 
         homePage.getCommentBox.click();
+
+        BrowserUtils.sleep(3);
 
         // switch the iframe which is include this input box
 
