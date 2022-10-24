@@ -21,7 +21,7 @@ public class ForgotPasswordPageTest {
     Faker faker;
 
     LoginPage loginPage;
-    before
+    
 
     @BeforeMethod
     public void setUp() {
